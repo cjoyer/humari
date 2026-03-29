@@ -1,0 +1,18 @@
+{
+  "server_modules": {
+    "events": {
+      "on_voice_state_update": {
+        "load_module": true,
+        "create_channel_id": 1482679460221423678,
+        "send_message": false
+      }
+    }
+  },
+  "client_modules": {
+    "events": {
+      "on_ready": {
+        "load_module": true
+      }
+    }
+  }
+}
