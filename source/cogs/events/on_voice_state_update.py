@@ -1,3 +1,7 @@
+# Info:
+#   Created at: 03.29.2026
+#   Author: cjoyer
+
 import disnake
 from disnake.ext import commands
 import commentjson
@@ -43,7 +47,7 @@ class VoiceStateUpdate(commands.Cog):
           await member.move_to(new_channel)
 
           if self.data["server_modules"]["events"]["on_voice_state_update"]["send_message"]:
-            await new_channel.send(f"Hello, <@{member.id}>!\nWelcome to your temporary personal voice channel.\n**You have access to control it**. Get fun! <:pepe_drinks_tea:1473281666582843402>")
+            await new_channel.send(f"Привет, <@{member.id}>!\nДобро пожаловать в твой приватный голосовой канал.\n**У тебя есть права, что бы управлять им**. Веселись! <:pepe_drinks_tea:1473281666582843402>")
 
       if before.channel and before.channel.id in self.temp_channels:
           channel = before.channel

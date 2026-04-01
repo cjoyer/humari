@@ -1,3 +1,7 @@
+# Info:
+#   Created at: 03.29.2026
+#   Author: cjoyer
+
 import disnake
 from disnake.ext import commands
 

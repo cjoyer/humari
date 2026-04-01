@@ -1,3 +1,7 @@
+# Info:
+#   Created at: 03.29.2026
+#   Author: cjoyer
+
 def main():
   import disnake
   from disnake.ext import commands
@@ -17,7 +21,8 @@ def main():
   )
   
   server_modules_events = [
-    "on_voice_state_update"
+    "on_voice_state_update",
+    "on_member_join"
   ]
   
   client_modules_events = [

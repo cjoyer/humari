@@ -4,7 +4,11 @@
       "on_voice_state_update": {
         "load_module": true,
         "create_channel_id": 1482679460221423678,
-        "send_message": false
+        "send_msg": true
+      },
+      "on_member_join": {
+        "load_module": true,
+        "send_welcome_msg_to": 1466851747090792552
       }
     }
   },
@@ -12,6 +16,12 @@
     "events": {
       "on_ready": {
         "load_module": true
+      }
+    },
+    "commands": {
+      "help": {
+        "load_module": true,
+        "show_disabled_commands": true
       }
     }
   }
