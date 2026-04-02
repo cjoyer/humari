@@ -46,7 +46,7 @@ class VoiceStateUpdate(commands.Cog):
           self.temp_channels[new_channel.id] = member.id
           await member.move_to(new_channel)
 
-          if self.data["server_modules"]["events"]["on_voice_state_update"]["send_message"]:
+          if self.data["server_modules"]["events"]["on_voice_state_update"]["send_msg"]:
             await new_channel.send(f"Привет, <@{member.id}>!\nДобро пожаловать в твой приватный голосовой канал.\n**У тебя есть права, что бы управлять им**. Веселись! <:pepe_drinks_tea:1473281666582843402>")
 
       if before.channel and before.channel.id in self.temp_channels:
