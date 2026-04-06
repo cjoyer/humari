@@ -1,4 +1,4 @@
-{
+{ // please don't delete anything of here, just edit key values
   "server_modules": {
     "events": {
       "on_voice_state_update": {
