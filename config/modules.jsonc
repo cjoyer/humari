@@ -22,11 +22,31 @@
       "info": {
         "help": {
           "load_module": true,
-          "status": "in_dev" // avalible statuses: 'done', 'in_dev', 'comming_soon'
+          "status": "done" // avalible statuses: 'done', 'in_dev', 'comming_soon'
+        },
+        "server": {
+          "load_module": true,
+          "status": "done"
+        },
+        "user": {
+          "load_module": true,
+          "status": "in_dev"
+        },
+        "host": {
+          "load_module": true,
+          "status": "in_dev"
         }
       },
       "moderation": {
         "clear": {
+          "load_module": true,
+          "status": "done"
+        },
+        "ban": {
+          "load_module": true,
+          "status": "done"
+        },
+        "kick": {
           "load_module": true,
           "status": "done"
         }

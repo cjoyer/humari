@@ -7,6 +7,8 @@ def main():
   from disnake.ext import commands
   import os
   import commentjson
+  import threading
+  import time
     
   intents = disnake.Intents.default()
   intents.message_content = True
@@ -20,6 +22,31 @@ def main():
     command_prefix='$'
   )
   
+  def uptime_task():
+    days = hours = minutes = 0
+    os.environ["UPTIME_DAYS"] = str(days)
+    os.environ["UPTIME_HOURS"] = str(hours)
+    os.environ["UPTIME_MINUTES"] = str(minutes)
+
+    while True:
+      time.sleep(60)
+      minutes += 1
+
+      if minutes == 60:
+        hours += 1
+        minutes = 0
+
+      if hours == 24:
+        days += 1
+        hours = 0
+
+      os.environ["UPTIME_DAYS"] = str(days)
+      os.environ["UPTIME_HOURS"] = str(hours)
+      os.environ["UPTIME_MINUTES"] = str(minutes)
+
+  t1 = threading.Thread(target=uptime_task, daemon=True)
+  t1.start()
+  
   server_modules_events = [
     "on_voice_state_update",
     "on_member_join"
@@ -30,11 +57,16 @@ def main():
   ]
 
   client_modules_commands_info = [
-    "help"
+    "help",
+    "server",
+    "user",
+    "host"
   ]
 
   client_modules_commands_moderation = [
-    "clear"
+    "clear",
+    "ban",
+    "kick"
   ]
   
   for module in server_modules_events:

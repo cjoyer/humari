@@ -24,6 +24,10 @@ class Clear(commands.Cog):
       default=None
     )
   ):
+    if inter.guild is None:
+      await inter.response.send_message("It's server-only command!", ephemeral=True)
+      retur
+    
     limit = 1024
 
     if amount > limit:
