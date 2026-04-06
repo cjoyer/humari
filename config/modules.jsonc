@@ -19,9 +19,17 @@
       }
     },
     "commands": {
-      "help": {
-        "load_module": true,
-        "show_disabled_commands": true
+      "info": {
+        "help": {
+          "load_module": true,
+          "status": "in_dev" // avalible statuses: 'done', 'in_dev', 'comming_soon'
+        }
+      },
+      "moderation": {
+        "clear": {
+          "load_module": true,
+          "status": "done"
+        }
       }
     }
   }

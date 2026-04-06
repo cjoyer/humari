@@ -29,6 +29,14 @@ def main():
     "on_ready"
   ]
 
+  client_modules_commands_info = [
+    "help"
+  ]
+
+  client_modules_commands_moderation = [
+    "clear"
+  ]
+  
   for module in server_modules_events:
     if data["server_modules"]["events"][module]["load_module"]:
       client.load_extension(f"source.cogs.events.{module}")
@@ -38,6 +46,19 @@ def main():
     if data["client_modules"]["events"][module]["load_module"]:
       client.load_extension(f"source.cogs.events.{module}")
       print(f"✅ | Cog 'source.cogs.events.{module}' was loaded")
+
+  for module in client_modules_commands_info:
+    if data["client_modules"]["commands"]["info"][module]["load_module"]:
+      client.load_extension(f"source.cogs.commands.info.{module}")
+      print(f"✅ | Cog 'source.cogs.commands.info.{module}' was loaded")
+
+  for module in client_modules_commands_moderation:
+    if data["client_modules"]["commands"]["moderation"][module]["load_module"]:
+      client.load_extension(f"source.cogs.commands.moderation.{module}")
+      print(f"✅ | Cog 'source.cogs.commands.moderation.{module}' was loaded")
+      
+  client.load_extension("source.cogs.events.on_button_click")
+  print(f"✅ | Cog 'source.cogs.events.on_button_click' was loaded")
 
   client.run(os.environ.get("DISCORD_BOT_TOKEN"))
 
