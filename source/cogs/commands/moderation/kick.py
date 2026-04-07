@@ -22,9 +22,12 @@ class Kick(commands.Cog):
       default=None
     )
   ):
-    if inter.guild is None:
+    if user.bot:
+      await inter.response.send_message("You can't kick me by using my command!", ephemeral=True)
+      return
+    elif inter.guild is None:
       await inter.response.send_message("It's server-only command!", ephemeral=True)
-      retur
+      return
 
     user_id = user.id
     kick_reason = f"Reason: `{reason}`" if reason else "`None`"

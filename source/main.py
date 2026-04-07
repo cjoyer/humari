@@ -91,6 +91,8 @@ def main():
       
   client.load_extension("source.cogs.events.on_button_click")
   print(f"✅ | Cog 'source.cogs.events.on_button_click' was loaded")
+  client.load_extension("source.cogs.events.handlers.on_slash_command_error")
+  print(f"✅ | Cog 'source.cogs.handlers.on_slash_command_error' was loaded")
 
   client.run(os.environ.get("DISCORD_BOT_TOKEN"))
 

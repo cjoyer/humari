@@ -16,6 +16,9 @@
     "events": {
       "on_ready": {
         "load_module": true
+      },
+      "on_slash_command_error": {
+        "send_error_report": 1491027706958053489 // can be false or channel id
       }
     },
     "commands": {
