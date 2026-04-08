@@ -20,6 +20,8 @@ class OnMemberJoin(commands.Cog):
     send_to = self.client.get_channel(channel_id)
 
     if send_to:
+      if member.bot:
+        return
       hello = [
         "приветик!",
         "привет!",

@@ -1,4 +1,4 @@
-{
+{ // please don't delete anything of here, just edit key values
   "server_modules": {
     "events": {
       "on_voice_state_update": {
@@ -16,12 +16,44 @@
     "events": {
       "on_ready": {
         "load_module": true
+      },
+      "on_slash_command_error": {
+        "send_error_report": 1491027706958053489 // channel id or false
       }
     },
     "commands": {
-      "help": {
-        "load_module": true,
-        "show_disabled_commands": true
+      "info": {
+        "help": {
+          "load_module": true,
+          "status": "done" // avalible statuses: 'done', 'in_dev', 'comming_soon'
+        },
+        "server": {
+          "load_module": true,
+          "status": "done"
+        },
+        "user": {
+          "load_module": true,
+          "status": "in_dev"
+        },
+        "host": {
+          "load_module": true,
+          "status": "in_dev"
+        }
+      },
+      "moderation": {
+        "send_logs": 1484250572642320486, // channel id or false
+        "clear": {
+          "load_module": true,
+          "status": "done"
+        },
+        "ban": {
+          "load_module": true,
+          "status": "done"
+        },
+        "kick": {
+          "load_module": true,
+          "status": "done"
+        }
       }
     }
   }
