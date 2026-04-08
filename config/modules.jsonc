@@ -18,7 +18,7 @@
         "load_module": true
       },
       "on_slash_command_error": {
-        "send_error_report": 1491027706958053489 // can be false or channel id
+        "send_error_report": 1491027706958053489 // channel id or false
       }
     },
     "commands": {
@@ -41,6 +41,7 @@
         }
       },
       "moderation": {
+        "send_logs": 1484250572642320486, // channel id or false
         "clear": {
           "load_module": true,
           "status": "done"
