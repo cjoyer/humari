@@ -15,26 +15,26 @@ class Clear(commands.Cog):
 
   @commands.slash_command(
     default_member_permissions=disnake.Permissions(manage_messages=True),
-    description="Delete many messages at once"
+    description="Удалить много сообщений за раз"
   )
   async def clear(
     self,
     inter: disnake.ApplicationCommandInteraction,
     amount: int = commands.Param(
-      description="Number of messages to delete"
+      description="Кол-во сообщений для удаления"
     ),
     by: disnake.Member = commands.Param(
-      description="Delete messages written by member | Default: None",
+      description="Удалить сообщения юзера | Опционально: None",
       default=None
     )
   ):
     if inter.guild is None:
-      await inter.response.send_message("It's a server-only command!", ephemeral=True)
+      await inter.response.send_message("Это серверная команда!", ephemeral=True)
       return
 
     if amount <= 0:
       await inter.response.send_message(
-        "Amount of messages to delete must be greater than `0`.", ephemeral=True
+        "Минимальное кол-во сообщений для удаления: `0`.", ephemeral=True
       )
       return
 
@@ -42,7 +42,7 @@ class Clear(commands.Cog):
 
     if amount > limit:
       await inter.response.send_message(
-        f"Limit of messages to delete: `{limit}`", ephemeral=True
+        f"Лимит сообщений для удаления: `{limit}`", ephemeral=True
       )
       return
 
@@ -57,23 +57,22 @@ class Clear(commands.Cog):
 
     if log_channel:
       log_embed = disnake.Embed(
-        title="Messages cleared",
+        title="Сообщения удалены",
         description=(
-          f"`{len(deleted)}` messages have been deleted in <#{inter.channel.id}> "
-          f"by <@{inter.author.id}>."
-          + (f"\nFiltered by: <@{by.id}> (`{by.id}`)" if by else "")
+          f"`{len(deleted)}` сообщений было удалено в <#{inter.channel.id}>"
+          + (f"\nФильтр: <@{by.id}> (`{by.id}`)" if by else "")
         )
       )
 
       log_embed.set_footer(
-        text=f"Interactor — {inter.author.name} ({inter.author.id})",
+        text=f"Пользователь — {inter.author.name} ({inter.author.id})",
         icon_url=inter.author.display_avatar.url
       )
 
       await log_channel.send(embed=log_embed)
 
     await inter.edit_original_response(
-      content=f"`{len(deleted)}` messages have been deleted"
+      content=f"`{len(deleted)}` сообщений было удалено"
     )
 
 def setup(client):
