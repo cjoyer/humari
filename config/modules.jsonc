@@ -1,4 +1,4 @@
-{ // please don't delete anything of here, just edit key values
+{ // please don't delete anything of here, just edit key values!!
   "server_modules": {
     "events": {
       "on_voice_state_update": {
@@ -25,7 +25,13 @@
       "info": {
         "help": {
           "load_module": true,
-          "status": "done" // avalible statuses: 'done', 'in_dev', 'comming_soon'
+          "status": "done", // could be: 'done', 'in_dev', 'comming_soon'
+          "emojis": { // could be emoji id or 0
+            "red": 1490673742786072648,
+            "yellow": 1490673746347032658,
+            "green": 1490673747504533694,
+            "blue": 1490673739224977469
+          }
         },
         "server": {
           "load_module": true,
@@ -35,7 +41,7 @@
           "load_module": true,
           "status": "in_dev"
         },
-        "host": {
+        "botinfo": {
           "load_module": true,
           "status": "in_dev"
         }

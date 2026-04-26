@@ -9,10 +9,10 @@ class Server(commands.Cog):
   def __init__(self, client):
     self.client = client
 
-  @commands.slash_command(description="Shows information about server")
+  @commands.slash_command(description="Показывает информацию о сервере")
   async def server(self, inter: disnake.ApplicationCommandInteraction):
     if inter.guild is None:
-      await inter.response.send_message("It's server-only command!", ephemeral=True)
+      await inter.response.send_message("Это серверная команда!", ephemeral=True)
       return
 
     server_name = inter.guild.name
@@ -25,16 +25,16 @@ class Server(commands.Cog):
     server_voice_channels_count = len(inter.guild.voice_channels)
 
     server_info_embed = disnake.Embed(
-      title=f":grey_exclamation: | Server info",
+      title=f":grey_exclamation: | Информация о сервере",
       description=(
-        f"Server name: `{server_name}`\n"
-        f"Server owner: <@{server_owner.id}>\n\n"
-        f"Members count: `{server_members_count}`\n"
-        f"Bots count: `{server_bots_count}`\n\n"
-        f"Roles count: `{server_roles_count}` (+@everyone)\n"
-        f"Categories count: `{server_categories_count}`\n"
-        f"Text channels count: `{server_text_channels_count}`\n"
-        f"Voice channels count: `{server_voice_channels_count}`\n"
+        f"Имя сервера: `{server_name}`\n"
+        f"Владелец: <@{server_owner.id}>\n\n"
+        f"Участники: `{server_members_count}`\n"
+        f"Боты: `{server_bots_count}`\n\n"
+        f"Роли: `{server_roles_count}` (+@everyone)\n"
+        f"Категории: `{server_categories_count}`\n"
+        f"Текстовые каналы: `{server_text_channels_count}`\n"
+        f"Голосовые каналы: `{server_voice_channels_count}`\n"
       )
     )
 

@@ -9,21 +9,22 @@ class User(commands.Cog):
   def __init__(self, client):
       self.client = client
 
-  @commands.slash_command(description="Shows information about user")
+  @commands.slash_command(description="Показывает информацию о юзере")
   async def user(
     self, inter: disnake.ApplicationCommandInteraction,
     user: disnake.Member = commands.Param(
-        description="Information specified user | Default: Interactor",
+        description="Информация о выбраном юзере | Опционально: Interactor",
         default=lambda inter: inter.author
     )
   ):
     user_id = user.id
+    user_name = user.name
 
     user_info_embed = disnake.Embed(
-      title=f":grey_exclamation: | User info",
+      title=f":grey_exclamation: | Информация о юзере",
       description=(
-        f"User name: <@{user_id}>\n"
-        f"User ID: `{user_id}`\n"
+        f"Имя юзера: <@{user_id}>/`{user_name}`\n"
+        f"ID юзера: `{user_id}`\n"
       )
     )
 

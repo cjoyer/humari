@@ -22,29 +22,29 @@ class OnSlashCommandError(commands.Cog):
     options = ", ".join(f"{opt.name}: {opt.value}" for opt in inter.data.options)
 
     error_embed = disnake.Embed(
-      title="❌ Slash command error!",
-      description=f"Error while using the command:\n```sh\n{error}\n```"
+      title="❌ Обишка слэш-команды!",
+      description=f"Ошибка при использовании команды:\n```sh\n{error}\n```"
     )
     
     report_embed = disnake.Embed(
-      title="⚠️ Slash command error report",
+      title="⚠️ Репорт о ошибке слэш-команды",
       description=f"/**{inter.data.name}** {options or '`none`'}\n```sh\n{error}\n```"
     )
     
     if (report_channel):
       error_embed.set_footer(
-        text="Developer notified"
+        text="Разработчик уведомлён"
       )
       
       report_embed.set_footer(
-        text=f"Interactor — {inter.author.name} ({inter.author.id})",
+        text=f"Пользователь — {inter.author.name} ({inter.author.id})",
         icon_url=inter.author.avatar.url
       )
       
       await report_channel.send(embed=report_embed)
 
     if isinstance(error, commands.MissingPermissions):
-      await inter.response.send_message("❌ Error: `you don't have enough permissions to use this command`!", ephemeral=True)
+      await inter.response.send_message("❌ Ошибка: `У вас нет прав для использования этой команды`", ephemeral=True)
     else:
       await inter.response.send_message(embed=error_embed, ephemeral=True)
 
