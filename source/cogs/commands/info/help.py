@@ -18,7 +18,7 @@ class Help(commands.Cog):
 		)
 		
 		select = disnake.ui.StringSelect(
-			placeholder="Категония",
+			placeholder="Категория",
 			custom_id="help_category_select",
 			options=[
 				disnake.SelectOption(label="Информация", value="help_info_select", emoji="📋"),
